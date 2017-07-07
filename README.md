@@ -3,7 +3,7 @@ Some scripts written in python to easily generate the files needed by FSL progra
 
 Currently, the following generation files are provided:
 
-	python unpairedtwosamplegeneratorion.py <# subjects in group1> <\#subjects in group2>
+	python unpairedtwosamplegeneratorion.py <# subjects in group1> <#subjects in group2>
 
 	python pairedtwosamplegeneration.py <# subjects>
 
