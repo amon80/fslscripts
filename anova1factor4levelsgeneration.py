@@ -38,10 +38,24 @@ def generate_files(num_subjects, mat_output_filename, con_output_filename, grp_o
         counter += 1
     grp_output_file.close()
 
+    contrast_matrix = []
+    for j in range(3):
+        contrast_matrix.append(list())
+        for i in range(num_subjects+3):
+            contrast_matrix[j].append(0)
+    for i in range(num_subjects, num_subjects+3):
+        for j in range(3):
+            if(i-num_subjects == j):
+                contrast_matrix[j][i] = 1
+
     con_output_file = open(con_output_filename, "w")
-    con_output_file.write("0 0 1 0 0\n")
-    con_output_file.write("0 0 0 1 0\n")
-    con_output_file.write("0 0 0 0 1\n")
+    for j in range(3):
+        for i in range(num_subjects+3):
+            con_output_file.write(str(contrast_matrix[j][i]))
+            if(i == num_subjects+2):
+                con_output_file.write("\n")
+            else:
+                con_output_file.write(" ")
     con_output_file.close()
 
     ftest_output_file = open(ftests_output_filename, "w")
